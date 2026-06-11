@@ -25,7 +25,7 @@ El proyecto aplica:
 
 ## 👥 Integrantes del equipo
 
-- 👨‍💻 **Cajas Ibarra Irvin Marcelo** — `@Theirvin`
+- 👨‍💻 **Cajas Ibarra Irvin Marcelo** — `@Theirvin1`
 - 👨‍💻 **Panamá Murillo Moisés Antonio** — `@MoisesPanama`
 - 👩‍💻 **Taipe Mora Zaida Melissa** — `@Zaida-tm`         |
 
