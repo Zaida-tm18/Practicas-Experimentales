@@ -33,7 +33,11 @@ El proyecto aplica:
 
 ## 🛠️ Tecnologías utilizadas
 
-<List gap={1}><List.Item><Bold>HTML5</Bold> – estructura semántica de la aplicación.</List.Item><List.Item><Bold>CSS3</Bold> – diseño responsivo, variables CSS, Grid y Flexbox.</List.Item><List.Item><Bold>JavaScript ES6+</Bold> – lógica modular, validaciones y consumo de API.</List.Item><List.Item><Bold>Dog CEO API</Bold> – obtención dinámica de razas caninas.</List.Item><List.Item><Bold>LocalStorage</Bold> – persistencia de pacientes registrados.</List.Item></List>
+<List gap={1}><List.Item><Bold>HTML5</Bold> – estructura semántica de la aplicación.</List.Item>
+<List.Item><Bold>CSS3</Bold> – diseño responsivo, variables CSS, Grid y Flexbox.</List.Item><List.Item>
+<Bold>JavaScript ES6+</Bold> – lógica modular, validaciones y consumo de API.</List.Item><List.Item>
+<Bold>Dog CEO API</Bold> – obtención dinámica de razas caninas.</List.Item><List.Item>
+<Bold>LocalStorage</Bold> – persistencia de pacientes registrados.</List.Item></List>
 
 ---
 
