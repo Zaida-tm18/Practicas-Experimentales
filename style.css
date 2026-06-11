@@ -4,7 +4,7 @@
     --color-fondo: #f0fdf9;
     --color-superficie: #ffffff;
     --color-texto: #134e4a;
-    --color-texto-suave: #5eead4;
+    --color-texto-suave: #0f766e;
     --color-borde: #99f6e4;
     --color-error: #dc2626;
     --color-exito: #16a34a;
@@ -46,9 +46,6 @@ body {
     color: var(--color-texto);
     background-color: var(--color-fondo);
     line-height: 1.6;
-}
-
-body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
@@ -88,17 +85,18 @@ nav ul {
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-size: var(--texto-sm);
-    font-weight: 500;
+    font-weight: 700;
     padding: var(--espacio-xs) var(--espacio-sm);
     border-radius: var(--radio-sm);
     transition: background-color var(--transicion);
+    background-color: rgba(0,0,0,0.3);
 }
 
 nav a:hover {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(0,0,0,0.45);
 }
 
 section {
@@ -106,6 +104,7 @@ section {
     border-radius: var(--radio-lg);
     padding: var(--espacio-xl);
     box-shadow: var(--sombra-md);
+    animation: entrada 0.4s ease both;
 }
 
 section h2 {
@@ -152,7 +151,7 @@ select:focus,
 textarea:focus {
     outline: none;
     border-color: var(--color-primario);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
 }
 
 input:invalid:not(:placeholder-shown) {
@@ -207,21 +206,25 @@ fieldset label {
     min-height: 1.2em;
 }
 
+.error.visible {
+    animation: pulso-error 0.3s ease;
+}
+
 button[type="submit"] {
-    background-color: var(--color-primario);
-    color: white;
+    background-color: #065f46;
+    color: #ffffff;
     border: none;
     padding: var(--espacio-md) var(--espacio-xl);
     border-radius: var(--radio-md);
     font-size: var(--texto-base);
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: background-color var(--transicion), transform var(--transicion), box-shadow var(--transicion);
     align-self: flex-start;
 }
 
 button[type="submit"]:hover {
-    background-color: var(--color-primario-hover);
+    background-color: #064e3b;
     transform: translateY(-1px);
     box-shadow: var(--sombra-md);
 }
@@ -230,29 +233,27 @@ button[type="submit"]:active {
     transform: translateY(0);
 }
 
-@keyframes entrada {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.btn-eliminar {
+    margin-top: var(--espacio-sm);
+    padding: var(--espacio-xs) var(--espacio-md);
+    background-color: #991b1b;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radio-sm);
+    cursor: pointer;
+    font-size: var(--texto-sm);
+    font-weight: 700;
+    transition: opacity var(--transicion);
 }
 
-@keyframes pulso-error {
-    0%, 100% { transform: translateX(0); }
-    25%       { transform: translateX(-6px); }
-    75%       { transform: translateX(6px); }
+.btn-eliminar:hover {
+    opacity: 0.85;
 }
 
-section {
-    animation: entrada 0.4s ease both;
-}
-
-.error.visible {
-    animation: pulso-error 0.3s ease;
+.tarjeta-tipo {
+    font-size: var(--texto-sm);
+    color: #0f766e;
+    text-transform: capitalize;
 }
 
 #contenedor-tarjetas {
@@ -287,6 +288,23 @@ footer {
     font-size: var(--texto-sm);
 }
 
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulso-error {
+    0%, 100% { transform: translateX(0); }
+    25%       { transform: translateX(-6px); }
+    75%       { transform: translateX(6px); }
+}
+
 @media (min-width: 768px) {
     main {
         grid-template-columns: 1fr;
@@ -306,26 +324,4 @@ footer {
     section#formulario {
         grid-column: 1 / -1;
     }
-}
-
-.tarjeta-tipo {
-    font-size: var(--texto-sm);
-    color: var(--color-texto-suave);
-    text-transform: capitalize;
-}
-
-.btn-eliminar {
-    margin-top: var(--espacio-sm);
-    padding: var(--espacio-xs) var(--espacio-md);
-    background-color: var(--color-error);
-    color: white;
-    border: none;
-    border-radius: var(--radio-sm);
-    cursor: pointer;
-    font-size: var(--texto-sm);
-    transition: opacity var(--transicion);
-}
-
-.btn-eliminar:hover {
-    opacity: 0.85;
 }
