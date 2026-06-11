@@ -1,6 +1,12 @@
 const URL_API = 'https://dog.ceo/api/breeds/list/all';
 
 export async function obtenerRazas() {
+    const contenedor = document.getElementById('contenedor-tarjetas');
+    contenedor.innerHTML = `
+        <p class="estado-carga" role="status" aria-live="polite">
+            Cargando razas disponibles...
+        </p>`;
+
     try {
         const respuesta = await fetch(URL_API);
         if (!respuesta.ok) throw new Error('Error al conectar con la API');
@@ -18,7 +24,10 @@ export function renderizarTarjetas(razas) {
     contenedor.innerHTML = '';
 
     if (razas.length === 0) {
-        contenedor.innerHTML = '<p>No se pudieron cargar las razas.</p>';
+        contenedor.innerHTML = `
+            <div class="estado-vacio" role="status" aria-live="polite">
+                <p>No se pudieron cargar las razas. Verifica tu conexión.</p>
+            </div>`;
         return;
     }
 
