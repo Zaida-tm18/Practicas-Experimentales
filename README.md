@@ -10,15 +10,10 @@ Permite registrar mascotas, almacenar pacientes localmente y mostrar informació
 El proyecto aplica:
 
   ✅ HTML5 semántico
-
   ✅ CSS3 responsivo con Grid y Flexbox
-
   ✅ JavaScript ES6+ modular
-
   ✅ Consumo de API pública (`Dog CEO API`)
-
   ✅ Validaciones accesibles y almacenamiento local (`localStorage`)
-
   ✅ Auditorías de accesibilidad y rendimiento con Lighthouse y WAVE
 
 ---
@@ -27,7 +22,7 @@ El proyecto aplica:
 
 - 👨‍💻 **Cajas Ibarra Irvin Marcelo** — `@Theirvin1`
 - 👨‍💻 **Panamá Murillo Moisés Antonio** — `@MoisesPanama`
-- 👩‍💻 **Taipe Mora Zaida Melissa** — `@Zaida-tm`         |
+- 👩‍💻 **Taipe Mora Zaida Melissa** — `@Zaida-tm`
 
 ---
 
