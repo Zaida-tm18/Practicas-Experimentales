@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Gestión Veterinaria - Registro de pacientes y citas">
+    <title>VetSystem - Gestión Veterinaria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-marca">
+            <span class="header-icono">🐾</span>
+            <h1>VetSystem</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#registro">Registro</a></li>
+                <li><a href="#pacientes">Pacientes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="registro">
+            <h2>Registro de Mascota</h2>
+
+            <form id="form-registro" novalidate>
+
+                <div class="campo">
+                    <label for="nombre-mascota">Nombre de la mascota</label>
+                    <input
+                        type="text"
+                        id="nombre-mascota"
+                        name="nombre-mascota"
+                        required
+                        minlength="2"
+                        aria-describedby="nombre-mascota-error"
+                        placeholder="Ej: Luna"
+                    >
+                    <span id="nombre-mascota-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="nombre-dueno">Nombre del dueño</label>
+                    <input
+                        type="text"
+                        id="nombre-dueno"
+                        name="nombre-dueno"
+                        required
+                        minlength="3"
+                        aria-describedby="nombre-dueno-error"
+                        placeholder="Ej: Carlos Pérez"
+                    >
+                    <span id="nombre-dueno-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="email">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        aria-describedby="email-error"
+                        placeholder="correo@ejemplo.com"
+                    >
+                    <span id="email-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="password">Contraseña de acceso</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        minlength="8"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        aria-describedby="password-error"
+                    >
+                    <span id="password-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Teléfono de contacto</label>
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        required
+                        pattern="[0-9]{9,15}"
+                        aria-describedby="telefono-error"
+                        placeholder="0987654321"
+                    >
+                    <span id="telefono-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="edad-mascota">Edad de la mascota (años)</label>
+                    <input
+                        type="number"
+                        id="edad-mascota"
+                        name="edad-mascota"
+                        required
+                        min="0"
+                        max="30"
+                        aria-describedby="edad-mascota-error"
+                    >
+                    <span id="edad-mascota-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="fecha-cita">Fecha de la cita</label>
+                    <input
+                        type="date"
+                        id="fecha-cita"
+                        name="fecha-cita"
+                        required
+                        aria-describedby="fecha-cita-error"
+                    >
+                    <span id="fecha-cita-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="peso">Peso de la mascota (kg): <span id="valor-peso">10</span> kg</label>
+                    <input
+                        type="range"
+                        id="peso"
+                        name="peso"
+                        min="0"
+                        max="80"
+                        value="10"
+                        aria-describedby="peso-error"
+                    >
+                    <span id="peso-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="historial">Subir historial médico (PDF)</label>
+                    <input
+                        type="file"
+                        id="historial"
+                        name="historial"
+                        accept=".pdf"
+                        aria-describedby="historial-error"
+                    >
+                    <span id="historial-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <fieldset>
+                        <legend>Vacunas aplicadas</legend>
+                        <label>
+                            <input type="checkbox" name="vacunas" value="rabia"> Rabia
+                        </label>
+                        <label>
+                            <input type="checkbox" name="vacunas" value="parvovirus"> Parvovirus
+                        </label>
+                        <label>
+                            <input type="checkbox" name="vacunas" value="moquillo"> Moquillo
+                        </label>
+                        <label>
+                            <input type="checkbox" name="vacunas" value="bordetella"> Bordetella
+                        </label>
+                    </fieldset>
+                </div>
+
+                <div class="campo">
+                    <fieldset>
+                        <legend>Tipo de consulta</legend>
+                        <label>
+                            <input type="radio" name="tipo-consulta" value="general" required> Consulta general
+                        </label>
+                        <label>
+                            <input type="radio" name="tipo-consulta" value="urgencia"> Urgencia
+                        </label>
+                        <label>
+                            <input type="radio" name="tipo-consulta" value="cirugia"> Cirugía
+                        </label>
+                    </fieldset>
+                </div>
+
+                <div class="campo">
+                    <label for="especie">Especie</label>
+                    <select id="especie" name="especie" required aria-describedby="especie-error">
+                        <option value="">-- Selecciona --</option>
+                        <option value="perro">Perro</option>
+                        <option value="gato">Gato</option>
+                        <option value="ave">Ave</option>
+                        <option value="conejo">Conejo</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <span id="especie-error" class="error" role="alert"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="observaciones">Observaciones clínicas</label>
+                    <textarea
+                        id="observaciones"
+                        name="observaciones"
+                        rows="4"
+                        maxlength="500"
+                        aria-describedby="observaciones-error"
+                        placeholder="Síntomas, comportamiento, medicación actual..."
+                    ></textarea>
+                    <span id="observaciones-error" class="error" role="alert"></span>
+                </div>
+
+                <button type="submit">Registrar mascota</button>
+
+            </form>
+        </section>
+
+        <section id="pacientes">
+            <h2>Pacientes registrados</h2>
+            <div id="contenedor-tarjetas"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 VetSystem — Sistema de Gestión Veterinaria</p>
+    </footer>
+    
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
