@@ -1,23 +1,24 @@
 import { iniciarFormulario } from './formulario.js';
 import { obtenerRazas, renderizarTarjetas } from './api.js';
-import { obtenerPacientes } from './storage.js';
+import { obtenerPacientes, eliminarPaciente } from './storage.js';
 
 async function iniciarApp() {
     iniciarFormulario(mostrarPacientesGuardados);
-
     const razas = await obtenerRazas();
     renderizarTarjetas(razas);
-
     mostrarPacientesGuardados();
 }
 
 function mostrarPacientesGuardados() {
     const pacientes = obtenerPacientes();
     const contenedor = document.getElementById('contenedor-tarjetas');
-
-    if (pacientes.length === 0) return;
-
     contenedor.innerHTML = '';
+
+    if (pacientes.length === 0) {
+        contenedor.innerHTML = '<p>Aún no hay pacientes registrados.</p>';
+        return;
+    }
+
     pacientes.forEach(p => {
         const tarjeta = document.createElement('article');
         tarjeta.classList.add('tarjeta');
@@ -28,17 +29,15 @@ function mostrarPacientesGuardados() {
             <p><strong>Cita:</strong> ${p.fechaCita}</p>
             <p><strong>Consulta:</strong> ${p.tipoConsulta}</p>
             <p class="tarjeta-tipo">Registrado: ${p.fechaRegistro}</p>
-            <button class="btn-eliminar" data-id="${p.id}">Eliminar</button>
+            <button class="btn-eliminar" data-id="${p.id}" aria-label="Eliminar paciente ${p.nombreMascota}">Eliminar</button>
         `;
         contenedor.appendChild(tarjeta);
     });
 
     contenedor.querySelectorAll('.btn-eliminar').forEach(btn => {
         btn.addEventListener('click', () => {
-            import('./storage.js').then(({ eliminarPaciente }) => {
-                eliminarPaciente(btn.dataset.id);
-                mostrarPacientesGuardados();
-            });
+            eliminarPaciente(btn.dataset.id);
+            mostrarPacientesGuardados();
         });
     });
 }
